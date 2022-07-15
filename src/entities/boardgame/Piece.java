@@ -2,7 +2,22 @@ package entities.boardgame;
 
 public class Piece {
 
-	private Position position;
+	protected Position position;
+	
+	private Board board;
+
+	public Piece(Board board) {
+		this.board = board;
+		this.position = null;
+	}
+
+	protected Board getBoard() {
+		return board;
+	}
+
+
+	
+	
 	
 	
 	
