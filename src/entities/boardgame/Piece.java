@@ -1,6 +1,6 @@
 package entities.boardgame;
 
-public class Piece {
+public abstract class Piece {
 
 	protected Position position;
 	
@@ -15,7 +15,26 @@ public class Piece {
 		return board;
 	}
 
-
+	public abstract boolean[][] possibleMoves();
+	
+	public boolean possibleMove(Position position) {
+		return possibleMoves()[position.getRow()][position.getColumn()];
+	}
+	
+	public boolean isThereAnyPossibleMove() {
+		boolean [][] mat = possibleMoves();
+	
+		for(int k = 0; k < mat.length; k++) {
+			for(int i = 0; i < mat.length; i++) {
+				
+				if(mat[k][i]) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 	
 	
 	

@@ -5,7 +5,7 @@ import entities.boardgame.Board;
 import entities.boardgame.Piece;
 import entities.boardgame.Position;
 
-public class ChessPiece extends Piece {
+public abstract class ChessPiece extends Piece {
 
 	private Color color;
 	private int moveCount;
