@@ -1,5 +1,8 @@
 package chess;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import chess.enums.Color;
 import chess.exception.ChessException;
 import chess.pieces.King;
@@ -14,6 +17,8 @@ public class ChessMatch {
 	private Color currentPlayer;
 
 	private Board board;
+	private List<Piece> piecesOnTheBoard = new ArrayList<>();
+	private List<Piece> capturedPieces = new ArrayList<>();
 
 	public ChessMatch() {
 
@@ -97,12 +102,17 @@ public class ChessMatch {
 		
 		board.placePiece(piece, target);
 		
+		if(capturedPiece != null) {
+			piecesOnTheBoard.remove(capturedPiece);
+			capturedPieces.add(capturedPiece);
+		}
 		return capturedPiece;
 		
 	}
 	
 	private void placeNewPiece(char column, int row, ChessPiece piece) {
 		board.placePiece(piece, new ChessPosition(column, row).toPosition());
+		piecesOnTheBoard.add(piece);
 	}
 
 	private void initialSetup() {
