@@ -34,7 +34,7 @@ public class ChessPosition {
 	
 	protected static ChessPosition fromPosition(Position position) {
 		int fromPositionRow = 8 - position.getRow();
-		char fromPositionColumn = (char) ((char)'a' - position.getColumn());
+		char fromPositionColumn = (char) ((char)'a' + position.getColumn());
 		
 		return new ChessPosition(fromPositionColumn, fromPositionRow);
 	}
